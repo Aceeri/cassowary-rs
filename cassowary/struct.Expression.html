@@ -1,0 +1,210 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="generator" content="rustdoc">
+    <meta name="description" content="API documentation for the Rust `Expression` struct in crate `cassowary`.">
+    <meta name="keywords" content="rust, rustlang, rust-lang, Expression">
+
+    <title>cassowary::Expression - Rust</title>
+
+    <link rel="stylesheet" type="text/css" href="../rustdoc.css">
+    <link rel="stylesheet" type="text/css" href="../main.css">
+    
+
+    
+    
+</head>
+<body class="rustdoc">
+    <!--[if lte IE 8]>
+    <div class="warning">
+        This old browser is unsupported and will most likely display funky
+        things.
+    </div>
+    <![endif]-->
+
+    
+
+    <nav class="sidebar">
+        
+        <p class='location'><a href='index.html'>cassowary</a></p><script>window.sidebarCurrent = {name: 'Expression', ty: 'struct', relpath: ''};</script><script defer src="sidebar-items.js"></script>
+    </nav>
+
+    <nav class="sub">
+        <form class="search-form js-only">
+            <div class="search-container">
+                <input class="search-input" name="search"
+                       autocomplete="off"
+                       placeholder="Click or press ‘S’ to search, ‘?’ for more options…"
+                       type="search">
+            </div>
+        </form>
+    </nav>
+
+    <section id='main' class="content struct">
+<h1 class='fqn'><span class='in-band'>Struct <a href='index.html'>cassowary</a>::<wbr><a class='struct' href=''>Expression</a></span><span class='out-of-band'><span id='render-detail'>
+                   <a id="toggle-all-docs" href="javascript:void(0)" title="collapse all docs">
+                       [<span class='inner'>&#x2212;</span>]
+                   </a>
+               </span><a class='srclink' href='../src/cassowary/lib.rs.html#271-274' title='goto source code'>[src]</a></span></h1>
+<pre class='rust struct'>pub struct Expression {
+    pub terms: <a class='struct' href='https://doc.rust-lang.org/nightly/collections/vec/struct.Vec.html' title='collections::vec::Vec'>Vec</a>&lt;<a class='struct' href='../cassowary/struct.Term.html' title='cassowary::Term'>Term</a>&gt;,
+    pub constant: <a class='primitive' href='https://doc.rust-lang.org/nightly/std/primitive.f64.html'>f64</a>,
+}</pre><div class='docblock'><p>An expression that can be the left hand or right hand side of a constraint equation.
+It is a linear combination of variables, i.e. a sum of variables weighted by coefficients, plus an optional constant.</p>
+</div><h2 class='fields'>Fields</h2><span id='structfield.terms' class='structfield'>
+                           <span id='terms.v' class='invisible'>
+                           <code>terms: <a class='struct' href='https://doc.rust-lang.org/nightly/collections/vec/struct.Vec.html' title='collections::vec::Vec'>Vec</a>&lt;<a class='struct' href='../cassowary/struct.Term.html' title='cassowary::Term'>Term</a>&gt;</code>
+                           </span></span><span class='stab '></span><span id='structfield.constant' class='structfield'>
+                           <span id='constant.v' class='invisible'>
+                           <code>constant: <a class='primitive' href='https://doc.rust-lang.org/nightly/std/primitive.f64.html'>f64</a></code>
+                           </span></span><span class='stab '></span><h2 id='methods'>Methods</h2><h3 class='impl'><span class='in-band'><code>impl <a class='struct' href='../cassowary/struct.Expression.html' title='cassowary::Expression'>Expression</a></code></span><span class='out-of-band'><div class='ghost'></div><a class='srclink' href='../src/cassowary/lib.rs.html#276-306' title='goto source code'>[src]</a></span></h3>
+<div class='impl-items'><h4 id='method.from_constant' class='method'><span id='from_constant.v' class='invisible'><code>fn <a href='#method.from_constant' class='fnname'>from_constant</a>(v: <a class='primitive' href='https://doc.rust-lang.org/nightly/std/primitive.f64.html'>f64</a>) -&gt; <a class='struct' href='../cassowary/struct.Expression.html' title='cassowary::Expression'>Expression</a></code></span></h4>
+<div class='docblock'><p>Constructs an expression of the form <em>n</em>, where n is a constant real number, not a variable.</p>
+</div><h4 id='method.from_term' class='method'><span id='from_term.v' class='invisible'><code>fn <a href='#method.from_term' class='fnname'>from_term</a>(term: <a class='struct' href='../cassowary/struct.Term.html' title='cassowary::Term'>Term</a>) -&gt; <a class='struct' href='../cassowary/struct.Expression.html' title='cassowary::Expression'>Expression</a></code></span></h4>
+<div class='docblock'><p>Constructs an expression from a single term. Forms an expression of the form <em>n x</em>
+where n is the coefficient, and x is the variable.</p>
+</div><h4 id='method.new' class='method'><span id='new.v' class='invisible'><code>fn <a href='#method.new' class='fnname'>new</a>(terms: <a class='struct' href='https://doc.rust-lang.org/nightly/collections/vec/struct.Vec.html' title='collections::vec::Vec'>Vec</a>&lt;<a class='struct' href='../cassowary/struct.Term.html' title='cassowary::Term'>Term</a>&gt;, constant: <a class='primitive' href='https://doc.rust-lang.org/nightly/std/primitive.f64.html'>f64</a>) -&gt; <a class='struct' href='../cassowary/struct.Expression.html' title='cassowary::Expression'>Expression</a></code></span></h4>
+<div class='docblock'><p>General constructor. Each <code>Term</code> in <code>terms</code> is part of the sum forming the expression, as well as <code>constant</code>.</p>
+</div><h4 id='method.negate' class='method'><span id='negate.v' class='invisible'><code>fn <a href='#method.negate' class='fnname'>negate</a>(&amp;mut self)</code></span></h4>
+<div class='docblock'><p>Mutates this expression by multiplying it by minus one.</p>
+</div></div><h2 id='implementations'>Trait Implementations</h2><h3 class='impl'><span class='in-band'><code>impl <a class='trait' href='https://doc.rust-lang.org/nightly/core/ops/trait.BitOr.html' title='core::ops::BitOr'>BitOr</a>&lt;<a class='enum' href='../cassowary/enum.WeightedRelation.html' title='cassowary::WeightedRelation'>WeightedRelation</a>&gt; for <a class='struct' href='../cassowary/struct.Expression.html' title='cassowary::Expression'>Expression</a></code></span><span class='out-of-band'><div class='ghost'></div><a class='srclink' href='../src/cassowary/operators.rs.html#31-36' title='goto source code'>[src]</a></span></h3>
+<div class='impl-items'><h4 id='associatedtype.Output' class='type'><span id='Output.t' class='invisible'><code>type <a href='https://doc.rust-lang.org/nightly/core/ops/trait.BitOr.html#associatedtype.Output' class='type'>Output</a> = <a class='struct' href='../cassowary/struct.PartialConstraint.html' title='cassowary::PartialConstraint'>PartialConstraint</a></code></span></h4>
+<div class='docblock'><p>The resulting type after applying the <code>|</code> operator</p>
+</div><h4 id='method.bitor' class='method'><span id='bitor.v' class='invisible'><code>fn <a href='https://doc.rust-lang.org/nightly/core/ops/trait.BitOr.html#tymethod.bitor' class='fnname'>bitor</a>(self, r: <a class='enum' href='../cassowary/enum.WeightedRelation.html' title='cassowary::WeightedRelation'>WeightedRelation</a>) -&gt; <a class='struct' href='../cassowary/struct.PartialConstraint.html' title='cassowary::PartialConstraint'>PartialConstraint</a></code></span></h4>
+<div class='docblock'><p>The method for the <code>|</code> operator</p>
+</div></div><h3 class='impl'><span class='in-band'><code>impl <a class='trait' href='https://doc.rust-lang.org/nightly/core/ops/trait.Add.html' title='core::ops::Add'>Add</a>&lt;<a class='struct' href='../cassowary/struct.Variable.html' title='cassowary::Variable'>Variable</a>&gt; for <a class='struct' href='../cassowary/struct.Expression.html' title='cassowary::Expression'>Expression</a></code></span><span class='out-of-band'><div class='ghost'></div><a class='srclink' href='../src/cassowary/operators.rs.html#112-118' title='goto source code'>[src]</a></span></h3>
+<div class='impl-items'><h4 id='associatedtype.Output-1' class='type'><span id='Output.t-1' class='invisible'><code>type <a href='https://doc.rust-lang.org/nightly/core/ops/trait.Add.html#associatedtype.Output' class='type'>Output</a> = <a class='struct' href='../cassowary/struct.Expression.html' title='cassowary::Expression'>Expression</a></code></span></h4>
+<div class='docblock'><p>The resulting type after applying the <code>+</code> operator</p>
+</div><h4 id='method.add' class='method'><span id='add.v' class='invisible'><code>fn <a href='https://doc.rust-lang.org/nightly/core/ops/trait.Add.html#tymethod.add' class='fnname'>add</a>(self, v: <a class='struct' href='../cassowary/struct.Variable.html' title='cassowary::Variable'>Variable</a>) -&gt; <a class='struct' href='../cassowary/struct.Expression.html' title='cassowary::Expression'>Expression</a></code></span></h4>
+<div class='docblock'><p>The method for the <code>+</code> operator</p>
+</div></div><h3 class='impl'><span class='in-band'><code>impl <a class='trait' href='https://doc.rust-lang.org/nightly/core/ops/trait.Sub.html' title='core::ops::Sub'>Sub</a>&lt;<a class='struct' href='../cassowary/struct.Variable.html' title='cassowary::Variable'>Variable</a>&gt; for <a class='struct' href='../cassowary/struct.Expression.html' title='cassowary::Expression'>Expression</a></code></span><span class='out-of-band'><div class='ghost'></div><a class='srclink' href='../src/cassowary/operators.rs.html#171-177' title='goto source code'>[src]</a></span></h3>
+<div class='impl-items'><h4 id='associatedtype.Output-2' class='type'><span id='Output.t-2' class='invisible'><code>type <a href='https://doc.rust-lang.org/nightly/core/ops/trait.Sub.html#associatedtype.Output' class='type'>Output</a> = <a class='struct' href='../cassowary/struct.Expression.html' title='cassowary::Expression'>Expression</a></code></span></h4>
+<div class='docblock'><p>The resulting type after applying the <code>-</code> operator</p>
+</div><h4 id='method.sub' class='method'><span id='sub.v' class='invisible'><code>fn <a href='https://doc.rust-lang.org/nightly/core/ops/trait.Sub.html#tymethod.sub' class='fnname'>sub</a>(self, v: <a class='struct' href='../cassowary/struct.Variable.html' title='cassowary::Variable'>Variable</a>) -&gt; <a class='struct' href='../cassowary/struct.Expression.html' title='cassowary::Expression'>Expression</a></code></span></h4>
+<div class='docblock'><p>The method for the <code>-</code> operator</p>
+</div></div><h3 class='impl'><span class='in-band'><code>impl <a class='trait' href='https://doc.rust-lang.org/nightly/core/ops/trait.Add.html' title='core::ops::Add'>Add</a>&lt;<a class='struct' href='../cassowary/struct.Term.html' title='cassowary::Term'>Term</a>&gt; for <a class='struct' href='../cassowary/struct.Expression.html' title='cassowary::Expression'>Expression</a></code></span><span class='out-of-band'><div class='ghost'></div><a class='srclink' href='../src/cassowary/operators.rs.html#255-261' title='goto source code'>[src]</a></span></h3>
+<div class='impl-items'><h4 id='associatedtype.Output-3' class='type'><span id='Output.t-3' class='invisible'><code>type <a href='https://doc.rust-lang.org/nightly/core/ops/trait.Add.html#associatedtype.Output' class='type'>Output</a> = <a class='struct' href='../cassowary/struct.Expression.html' title='cassowary::Expression'>Expression</a></code></span></h4>
+<div class='docblock'><p>The resulting type after applying the <code>+</code> operator</p>
+</div><h4 id='method.add-1' class='method'><span id='add.v-1' class='invisible'><code>fn <a href='https://doc.rust-lang.org/nightly/core/ops/trait.Add.html#tymethod.add' class='fnname'>add</a>(self, t: <a class='struct' href='../cassowary/struct.Term.html' title='cassowary::Term'>Term</a>) -&gt; <a class='struct' href='../cassowary/struct.Expression.html' title='cassowary::Expression'>Expression</a></code></span></h4>
+<div class='docblock'><p>The method for the <code>+</code> operator</p>
+</div></div><h3 class='impl'><span class='in-band'><code>impl <a class='trait' href='https://doc.rust-lang.org/nightly/core/ops/trait.Sub.html' title='core::ops::Sub'>Sub</a>&lt;<a class='struct' href='../cassowary/struct.Term.html' title='cassowary::Term'>Term</a>&gt; for <a class='struct' href='../cassowary/struct.Expression.html' title='cassowary::Expression'>Expression</a></code></span><span class='out-of-band'><div class='ghost'></div><a class='srclink' href='../src/cassowary/operators.rs.html#301-307' title='goto source code'>[src]</a></span></h3>
+<div class='impl-items'><h4 id='associatedtype.Output-4' class='type'><span id='Output.t-4' class='invisible'><code>type <a href='https://doc.rust-lang.org/nightly/core/ops/trait.Sub.html#associatedtype.Output' class='type'>Output</a> = <a class='struct' href='../cassowary/struct.Expression.html' title='cassowary::Expression'>Expression</a></code></span></h4>
+<div class='docblock'><p>The resulting type after applying the <code>-</code> operator</p>
+</div><h4 id='method.sub-1' class='method'><span id='sub.v-1' class='invisible'><code>fn <a href='https://doc.rust-lang.org/nightly/core/ops/trait.Sub.html#tymethod.sub' class='fnname'>sub</a>(self, t: <a class='struct' href='../cassowary/struct.Term.html' title='cassowary::Term'>Term</a>) -&gt; <a class='struct' href='../cassowary/struct.Expression.html' title='cassowary::Expression'>Expression</a></code></span></h4>
+<div class='docblock'><p>The method for the <code>-</code> operator</p>
+</div></div><h3 class='impl'><span class='in-band'><code>impl <a class='trait' href='https://doc.rust-lang.org/nightly/core/ops/trait.Mul.html' title='core::ops::Mul'>Mul</a>&lt;<a class='primitive' href='https://doc.rust-lang.org/nightly/std/primitive.f64.html'>f64</a>&gt; for <a class='struct' href='../cassowary/struct.Expression.html' title='cassowary::Expression'>Expression</a></code></span><span class='out-of-band'><div class='ghost'></div><a class='srclink' href='../src/cassowary/operators.rs.html#311-320' title='goto source code'>[src]</a></span></h3>
+<div class='impl-items'><h4 id='associatedtype.Output-5' class='type'><span id='Output.t-5' class='invisible'><code>type <a href='https://doc.rust-lang.org/nightly/core/ops/trait.Mul.html#associatedtype.Output' class='type'>Output</a> = <a class='struct' href='../cassowary/struct.Expression.html' title='cassowary::Expression'>Expression</a></code></span></h4>
+<div class='docblock'><p>The resulting type after applying the <code>*</code> operator</p>
+</div><h4 id='method.mul' class='method'><span id='mul.v' class='invisible'><code>fn <a href='https://doc.rust-lang.org/nightly/core/ops/trait.Mul.html#tymethod.mul' class='fnname'>mul</a>(self, v: <a class='primitive' href='https://doc.rust-lang.org/nightly/std/primitive.f64.html'>f64</a>) -&gt; <a class='struct' href='../cassowary/struct.Expression.html' title='cassowary::Expression'>Expression</a></code></span></h4>
+<div class='docblock'><p>The method for the <code>*</code> operator</p>
+</div></div><h3 class='impl'><span class='in-band'><code>impl <a class='trait' href='https://doc.rust-lang.org/nightly/core/ops/trait.Div.html' title='core::ops::Div'>Div</a>&lt;<a class='primitive' href='https://doc.rust-lang.org/nightly/std/primitive.f64.html'>f64</a>&gt; for <a class='struct' href='../cassowary/struct.Expression.html' title='cassowary::Expression'>Expression</a></code></span><span class='out-of-band'><div class='ghost'></div><a class='srclink' href='../src/cassowary/operators.rs.html#333-342' title='goto source code'>[src]</a></span></h3>
+<div class='impl-items'><h4 id='associatedtype.Output-6' class='type'><span id='Output.t-6' class='invisible'><code>type <a href='https://doc.rust-lang.org/nightly/core/ops/trait.Div.html#associatedtype.Output' class='type'>Output</a> = <a class='struct' href='../cassowary/struct.Expression.html' title='cassowary::Expression'>Expression</a></code></span></h4>
+<div class='docblock'><p>The resulting type after applying the <code>/</code> operator</p>
+</div><h4 id='method.div' class='method'><span id='div.v' class='invisible'><code>fn <a href='https://doc.rust-lang.org/nightly/core/ops/trait.Div.html#tymethod.div' class='fnname'>div</a>(self, v: <a class='primitive' href='https://doc.rust-lang.org/nightly/std/primitive.f64.html'>f64</a>) -&gt; <a class='struct' href='../cassowary/struct.Expression.html' title='cassowary::Expression'>Expression</a></code></span></h4>
+<div class='docblock'><p>The method for the <code>/</code> operator</p>
+</div></div><h3 class='impl'><span class='in-band'><code>impl <a class='trait' href='https://doc.rust-lang.org/nightly/core/ops/trait.Add.html' title='core::ops::Add'>Add</a>&lt;<a class='primitive' href='https://doc.rust-lang.org/nightly/std/primitive.f64.html'>f64</a>&gt; for <a class='struct' href='../cassowary/struct.Expression.html' title='cassowary::Expression'>Expression</a></code></span><span class='out-of-band'><div class='ghost'></div><a class='srclink' href='../src/cassowary/operators.rs.html#344-350' title='goto source code'>[src]</a></span></h3>
+<div class='impl-items'><h4 id='associatedtype.Output-7' class='type'><span id='Output.t-7' class='invisible'><code>type <a href='https://doc.rust-lang.org/nightly/core/ops/trait.Add.html#associatedtype.Output' class='type'>Output</a> = <a class='struct' href='../cassowary/struct.Expression.html' title='cassowary::Expression'>Expression</a></code></span></h4>
+<div class='docblock'><p>The resulting type after applying the <code>+</code> operator</p>
+</div><h4 id='method.add-2' class='method'><span id='add.v-2' class='invisible'><code>fn <a href='https://doc.rust-lang.org/nightly/core/ops/trait.Add.html#tymethod.add' class='fnname'>add</a>(self, v: <a class='primitive' href='https://doc.rust-lang.org/nightly/std/primitive.f64.html'>f64</a>) -&gt; <a class='struct' href='../cassowary/struct.Expression.html' title='cassowary::Expression'>Expression</a></code></span></h4>
+<div class='docblock'><p>The method for the <code>+</code> operator</p>
+</div></div><h3 class='impl'><span class='in-band'><code>impl <a class='trait' href='https://doc.rust-lang.org/nightly/core/ops/trait.Add.html' title='core::ops::Add'>Add</a>&lt;<a class='struct' href='../cassowary/struct.Expression.html' title='cassowary::Expression'>Expression</a>&gt; for <a class='struct' href='../cassowary/struct.Expression.html' title='cassowary::Expression'>Expression</a></code></span><span class='out-of-band'><div class='ghost'></div><a class='srclink' href='../src/cassowary/operators.rs.html#360-367' title='goto source code'>[src]</a></span></h3>
+<div class='impl-items'><h4 id='associatedtype.Output-8' class='type'><span id='Output.t-8' class='invisible'><code>type <a href='https://doc.rust-lang.org/nightly/core/ops/trait.Add.html#associatedtype.Output' class='type'>Output</a> = <a class='struct' href='../cassowary/struct.Expression.html' title='cassowary::Expression'>Expression</a></code></span></h4>
+<div class='docblock'><p>The resulting type after applying the <code>+</code> operator</p>
+</div><h4 id='method.add-3' class='method'><span id='add.v-3' class='invisible'><code>fn <a href='https://doc.rust-lang.org/nightly/core/ops/trait.Add.html#tymethod.add' class='fnname'>add</a>(self, e: <a class='struct' href='../cassowary/struct.Expression.html' title='cassowary::Expression'>Expression</a>) -&gt; <a class='struct' href='../cassowary/struct.Expression.html' title='cassowary::Expression'>Expression</a></code></span></h4>
+<div class='docblock'><p>The method for the <code>+</code> operator</p>
+</div></div><h3 class='impl'><span class='in-band'><code>impl <a class='trait' href='https://doc.rust-lang.org/nightly/core/ops/trait.Neg.html' title='core::ops::Neg'>Neg</a> for <a class='struct' href='../cassowary/struct.Expression.html' title='cassowary::Expression'>Expression</a></code></span><span class='out-of-band'><div class='ghost'></div><a class='srclink' href='../src/cassowary/operators.rs.html#369-375' title='goto source code'>[src]</a></span></h3>
+<div class='impl-items'><h4 id='associatedtype.Output-9' class='type'><span id='Output.t-9' class='invisible'><code>type <a href='https://doc.rust-lang.org/nightly/core/ops/trait.Neg.html#associatedtype.Output' class='type'>Output</a> = <a class='struct' href='../cassowary/struct.Expression.html' title='cassowary::Expression'>Expression</a></code></span></h4>
+<div class='docblock'><p>The resulting type after applying the <code>-</code> operator</p>
+</div><h4 id='method.neg' class='method'><span id='neg.v' class='invisible'><code>fn <a href='https://doc.rust-lang.org/nightly/core/ops/trait.Neg.html#tymethod.neg' class='fnname'>neg</a>(self) -&gt; <a class='struct' href='../cassowary/struct.Expression.html' title='cassowary::Expression'>Expression</a></code></span></h4>
+<div class='docblock'><p>The method for the unary <code>-</code> operator</p>
+</div></div><h3 class='impl'><span class='in-band'><code>impl <a class='trait' href='https://doc.rust-lang.org/nightly/core/ops/trait.Sub.html' title='core::ops::Sub'>Sub</a>&lt;<a class='primitive' href='https://doc.rust-lang.org/nightly/std/primitive.f64.html'>f64</a>&gt; for <a class='struct' href='../cassowary/struct.Expression.html' title='cassowary::Expression'>Expression</a></code></span><span class='out-of-band'><div class='ghost'></div><a class='srclink' href='../src/cassowary/operators.rs.html#377-383' title='goto source code'>[src]</a></span></h3>
+<div class='impl-items'><h4 id='associatedtype.Output-10' class='type'><span id='Output.t-10' class='invisible'><code>type <a href='https://doc.rust-lang.org/nightly/core/ops/trait.Sub.html#associatedtype.Output' class='type'>Output</a> = <a class='struct' href='../cassowary/struct.Expression.html' title='cassowary::Expression'>Expression</a></code></span></h4>
+<div class='docblock'><p>The resulting type after applying the <code>-</code> operator</p>
+</div><h4 id='method.sub-2' class='method'><span id='sub.v-2' class='invisible'><code>fn <a href='https://doc.rust-lang.org/nightly/core/ops/trait.Sub.html#tymethod.sub' class='fnname'>sub</a>(self, v: <a class='primitive' href='https://doc.rust-lang.org/nightly/std/primitive.f64.html'>f64</a>) -&gt; <a class='struct' href='../cassowary/struct.Expression.html' title='cassowary::Expression'>Expression</a></code></span></h4>
+<div class='docblock'><p>The method for the <code>-</code> operator</p>
+</div></div><h3 class='impl'><span class='in-band'><code>impl <a class='trait' href='https://doc.rust-lang.org/nightly/core/ops/trait.Sub.html' title='core::ops::Sub'>Sub</a>&lt;<a class='struct' href='../cassowary/struct.Expression.html' title='cassowary::Expression'>Expression</a>&gt; for <a class='struct' href='../cassowary/struct.Expression.html' title='cassowary::Expression'>Expression</a></code></span><span class='out-of-band'><div class='ghost'></div><a class='srclink' href='../src/cassowary/operators.rs.html#394-402' title='goto source code'>[src]</a></span></h3>
+<div class='impl-items'><h4 id='associatedtype.Output-11' class='type'><span id='Output.t-11' class='invisible'><code>type <a href='https://doc.rust-lang.org/nightly/core/ops/trait.Sub.html#associatedtype.Output' class='type'>Output</a> = <a class='struct' href='../cassowary/struct.Expression.html' title='cassowary::Expression'>Expression</a></code></span></h4>
+<div class='docblock'><p>The resulting type after applying the <code>-</code> operator</p>
+</div><h4 id='method.sub-3' class='method'><span id='sub.v-3' class='invisible'><code>fn <a href='https://doc.rust-lang.org/nightly/core/ops/trait.Sub.html#tymethod.sub' class='fnname'>sub</a>(self, e: <a class='struct' href='../cassowary/struct.Expression.html' title='cassowary::Expression'>Expression</a>) -&gt; <a class='struct' href='../cassowary/struct.Expression.html' title='cassowary::Expression'>Expression</a></code></span></h4>
+<div class='docblock'><p>The method for the <code>-</code> operator</p>
+</div></div><h3 class='impl'><span class='in-band'><code>impl <a class='trait' href='https://doc.rust-lang.org/nightly/core/clone/trait.Clone.html' title='core::clone::Clone'>Clone</a> for <a class='struct' href='../cassowary/struct.Expression.html' title='cassowary::Expression'>Expression</a></code></span><span class='out-of-band'><div class='ghost'></div><a class='srclink' href='../src/cassowary/lib.rs.html#270' title='goto source code'>[src]</a></span></h3>
+<div class='impl-items'><h4 id='method.clone' class='method'><span id='clone.v' class='invisible'><code>fn <a href='https://doc.rust-lang.org/nightly/core/clone/trait.Clone.html#tymethod.clone' class='fnname'>clone</a>(&amp;self) -&gt; <a class='struct' href='../cassowary/struct.Expression.html' title='cassowary::Expression'>Expression</a></code></span></h4>
+<div class='docblock'><p>Returns a copy of the value. <a href="https://doc.rust-lang.org/nightly/core/clone/trait.Clone.html#tymethod.clone">Read more</a></p>
+</div><h4 id='method.clone_from' class='method'><span id='clone_from.v' class='invisible'><code>fn <a href='https://doc.rust-lang.org/nightly/core/clone/trait.Clone.html#method.clone_from' class='fnname'>clone_from</a>(&amp;mut self, source: &amp;Self)</code><div class='since' title='Stable since Rust version 1.0.0'>1.0.0</div></span></h4>
+<div class='docblock'><p>Performs copy-assignment from <code>source</code>. <a href="https://doc.rust-lang.org/nightly/core/clone/trait.Clone.html#method.clone_from">Read more</a></p>
+</div></div><h3 class='impl'><span class='in-band'><code>impl <a class='trait' href='https://doc.rust-lang.org/nightly/core/fmt/trait.Debug.html' title='core::fmt::Debug'>Debug</a> for <a class='struct' href='../cassowary/struct.Expression.html' title='cassowary::Expression'>Expression</a></code></span><span class='out-of-band'><div class='ghost'></div><a class='srclink' href='../src/cassowary/lib.rs.html#270' title='goto source code'>[src]</a></span></h3>
+<div class='impl-items'><h4 id='method.fmt' class='method'><span id='fmt.v' class='invisible'><code>fn <a href='https://doc.rust-lang.org/nightly/core/fmt/trait.Debug.html#tymethod.fmt' class='fnname'>fmt</a>(&amp;self, __arg_0: &amp;mut <a class='struct' href='https://doc.rust-lang.org/nightly/core/fmt/struct.Formatter.html' title='core::fmt::Formatter'>Formatter</a>) -&gt; <a class='type' href='https://doc.rust-lang.org/nightly/core/fmt/type.Result.html' title='core::fmt::Result'>Result</a></code></span></h4>
+<div class='docblock'><p>Formats the value using the given formatter.</p>
+</div></div><h3 class='impl'><span class='in-band'><code>impl <a class='trait' href='https://doc.rust-lang.org/nightly/core/convert/trait.From.html' title='core::convert::From'>From</a>&lt;<a class='primitive' href='https://doc.rust-lang.org/nightly/std/primitive.f64.html'>f64</a>&gt; for <a class='struct' href='../cassowary/struct.Expression.html' title='cassowary::Expression'>Expression</a></code></span><span class='out-of-band'><div class='ghost'></div><a class='srclink' href='../src/cassowary/lib.rs.html#308-312' title='goto source code'>[src]</a></span></h3>
+<div class='impl-items'><h4 id='method.from' class='method'><span id='from.v' class='invisible'><code>fn <a href='https://doc.rust-lang.org/nightly/core/convert/trait.From.html#tymethod.from' class='fnname'>from</a>(v: <a class='primitive' href='https://doc.rust-lang.org/nightly/std/primitive.f64.html'>f64</a>) -&gt; <a class='struct' href='../cassowary/struct.Expression.html' title='cassowary::Expression'>Expression</a></code></span></h4>
+<div class='docblock'><p>Performs the conversion.</p>
+</div></div><h3 class='impl'><span class='in-band'><code>impl <a class='trait' href='https://doc.rust-lang.org/nightly/core/convert/trait.From.html' title='core::convert::From'>From</a>&lt;<a class='struct' href='../cassowary/struct.Variable.html' title='cassowary::Variable'>Variable</a>&gt; for <a class='struct' href='../cassowary/struct.Expression.html' title='cassowary::Expression'>Expression</a></code></span><span class='out-of-band'><div class='ghost'></div><a class='srclink' href='../src/cassowary/lib.rs.html#314-318' title='goto source code'>[src]</a></span></h3>
+<div class='impl-items'><h4 id='method.from-1' class='method'><span id='from.v-1' class='invisible'><code>fn <a href='https://doc.rust-lang.org/nightly/core/convert/trait.From.html#tymethod.from' class='fnname'>from</a>(v: <a class='struct' href='../cassowary/struct.Variable.html' title='cassowary::Variable'>Variable</a>) -&gt; <a class='struct' href='../cassowary/struct.Expression.html' title='cassowary::Expression'>Expression</a></code></span></h4>
+<div class='docblock'><p>Performs the conversion.</p>
+</div></div><h3 class='impl'><span class='in-band'><code>impl <a class='trait' href='https://doc.rust-lang.org/nightly/core/convert/trait.From.html' title='core::convert::From'>From</a>&lt;<a class='struct' href='../cassowary/struct.Term.html' title='cassowary::Term'>Term</a>&gt; for <a class='struct' href='../cassowary/struct.Expression.html' title='cassowary::Expression'>Expression</a></code></span><span class='out-of-band'><div class='ghost'></div><a class='srclink' href='../src/cassowary/lib.rs.html#320-324' title='goto source code'>[src]</a></span></h3>
+<div class='impl-items'><h4 id='method.from-2' class='method'><span id='from.v-2' class='invisible'><code>fn <a href='https://doc.rust-lang.org/nightly/core/convert/trait.From.html#tymethod.from' class='fnname'>from</a>(t: <a class='struct' href='../cassowary/struct.Term.html' title='cassowary::Term'>Term</a>) -&gt; <a class='struct' href='../cassowary/struct.Expression.html' title='cassowary::Expression'>Expression</a></code></span></h4>
+<div class='docblock'><p>Performs the conversion.</p>
+</div></div></section>
+    <section id='search' class="content hidden"></section>
+
+    <section class="footer"></section>
+
+    <aside id="help" class="hidden">
+        <div>
+            <h1 class="hidden">Help</h1>
+
+            <div class="shortcuts">
+                <h2>Keyboard Shortcuts</h2>
+
+                <dl>
+                    <dt>?</dt>
+                    <dd>Show this help dialog</dd>
+                    <dt>S</dt>
+                    <dd>Focus the search field</dd>
+                    <dt>&larrb;</dt>
+                    <dd>Move up in search results</dd>
+                    <dt>&rarrb;</dt>
+                    <dd>Move down in search results</dd>
+                    <dt>&#9166;</dt>
+                    <dd>Go to active search result</dd>
+                    <dt>+</dt>
+                    <dd>Collapse/expand all sections</dd>
+                </dl>
+            </div>
+
+            <div class="infos">
+                <h2>Search Tricks</h2>
+
+                <p>
+                    Prefix searches with a type followed by a colon (e.g.
+                    <code>fn:</code>) to restrict the search to a given type.
+                </p>
+
+                <p>
+                    Accepted types are: <code>fn</code>, <code>mod</code>,
+                    <code>struct</code>, <code>enum</code>,
+                    <code>trait</code>, <code>type</code>, <code>macro</code>,
+                    and <code>const</code>.
+                </p>
+
+                <p>
+                    Search functions by type signature (e.g.
+                    <code>vec -> usize</code> or <code>* -> vec</code>)
+                </p>
+            </div>
+        </div>
+    </aside>
+
+    
+
+    <script>
+        window.rootPath = "../";
+        window.currentCrate = "cassowary";
+    </script>
+    <script src="../jquery.js"></script>
+    <script src="../main.js"></script>
+    <script defer src="../search-index.js"></script>
+</body>
+</html>
